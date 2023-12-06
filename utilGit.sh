@@ -27,8 +27,16 @@ elif [[ $resp == "P" ]]; then
 	read -p "Comentário1 (Opicional): " cmt1
 	read -p "Comentário2 (Opicional): " cmt2
 
+	c1=${cmt1// /}
+
+	[[ ${#c1} -lt 1 ]] && comentario1="Commit" || comentario1=cmt1
+
+	c2=${cmt2// /}
+
+	[[ ${#c2} -lt 1 ]] && comentario2="Commit" || comentario2=cmt2
+
 	git add .
-	git commit -m "$cmt1" -m "$cmt2"
+	git commit -m comentario1 -m comentario2
 	git push origin git branch
 
 	exit 0
