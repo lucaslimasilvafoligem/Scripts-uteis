@@ -35,12 +35,16 @@ elif [[ $resp == "P" ]]; then
 
 	[[ ${#c2} -lt 1 ]] && comentario2="Commit" || comentario2=cmt2
 
-	echo "Branch atual: "git branch
+	echo "Branch atual: "
+	git branch
 
-	read -p "Digite a branch: "
+	echo "Todas as branchs: "
+	git branch --list
+
+	read -p "Digite a branch: " branch
 	git add .
 	git commit -m $comentario1 -m $comentario2
-	git push origin git branch
+	git push origin $branch
 
 	exit 0
 
