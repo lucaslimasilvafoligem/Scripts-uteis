@@ -36,7 +36,7 @@ elif [[ $resp == "P" ]]; then
 	[[ ${#c2} -lt 1 ]] && comentario2="Commit" || comentario2=cmt2
 
 	git add .
-	git commit -m comentario1 -m comentario2
+	git commit -m $comentario1 -m $comentario2
 	git push origin git branch
 
 	exit 0
