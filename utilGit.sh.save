@@ -6,11 +6,11 @@
 # export PATH=$PATH:~/bin
 
 loginn="lucaslimasilvafoligem"
-senha=""
+senha="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"
 
 function exibirSenha() {
 	read -p "Precisará da senha do gith?! s/S para sim, n/N para não: " resp
-	
+
 	str=${resposta// /}
 
 	resp=${resp^}
@@ -31,7 +31,6 @@ resp=${resp^}
 if [[ $resp == "C" ]]; then
 
 	echo "Opção: Cancelar"
-
 	exit 0
 
 elif [[ $resp == "B" ]]; then
@@ -67,13 +66,15 @@ elif [[ $resp == "E" ]]; then
 	read -p "Comentário1 (Opicional): " cmt1
 	read -p "Comentário2 (Opicional): " cmt2
 
+
+
 	c1=${cmt1// /}
 
 	[[ ${#c1} -lt 1 ]] && comentario1="Commit" || comentario1=cmt1
 
 	c2=${cmt2// /}
 
-	[[ ${#c2} -lt 1 ]] && comentario2="Commit" || comentario2=cmt2
+	[[ ${#c2} -gt 0 ]] && comentario2=cmt2
 
 	exibirSenha
 
